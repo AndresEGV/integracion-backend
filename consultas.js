@@ -1,10 +1,10 @@
 const { Pool } = require("pg");
-
+require("dotenv").config();
 const config = {
-  host: "dpg-clp4g31oh6hc73bsqnsg-a.oregon-postgres.render.com",
-  user: "user",
-  password: "bdaxFnvdIWFl8YMBA3VSdfoElkoYwnig",
-  database: "example_v9d1",
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_DATABASE,
   port: 5432,
   allowExitOnIdle: true,
   ssl: true,
