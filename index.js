@@ -1,9 +1,13 @@
 const express = require("express");
-
+const cors = require("cors");
+const { getUsuarios } = require("./consultas");
 const app = express();
 
-app.get("/", (req, res) => {
-  res.json({ msg: "Hola mundo" });
+app.use(cors());
+
+app.get("/", async (req, res) => {
+  const usuarios = await getUsuarios();
+  res.json(usuarios);
 });
 
-app.listen(3000, console.log("UP"));
+app.listen(3000, console.log("SERVER UP"));
